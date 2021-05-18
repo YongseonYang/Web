@@ -3,6 +3,42 @@
 <head>
     <title>WEB1 - JavaScript</title>
     <link rel="stylesheet" href="style.css">
+    <script>
+    function LinksSetColor (color) {
+        var alist = document.querySelectorAll('a');
+        var i = 0;
+        while(i < alist.length){
+            alist[i].style.color = color;
+            i = i + 1;
+            }
+        }
+
+    function BodySetColor (color) {
+        document.querySelector('body').style.color = color;
+    }
+
+    function BodySetBackgroundcolor (color) {
+        document.querySelector('body').style.backgroundColor = color;
+    }
+
+    function nightdayhandler(self) {
+    var target = document.querySelector('body');
+    if (self.value === 'Dark Mode') {
+        BodySetBackgroundcolor ('black');
+        BodySetColor('white');
+        self.value = 'Nomal Mode';
+
+        LinksSetColor('powderblue');
+
+    } else { 
+        BodySetBackgroundcolor ('white');
+        BodySetColor('black');
+        self.value = 'Dark Mode';
+
+        LinksSetColor('black');
+    }
+    }   
+    </script>
 </head>
 
 <body>
@@ -46,32 +82,7 @@
     </div>
     
     <input type="button" value="Dark Mode" onclick="
-    var target = document.querySelector('body');
-    if (this.value === 'Dark Mode') {
-        target.style.backgroundColor = 'black';
-        target.style.color = 'white';
-        this.value = 'Nomal Mode';
-
-        var alist = document.querySelectorAll('a');
-        var i = 0;
-        while(i < alist.length){
-            alist[i].style.color = 'powderblue';
-            i = i + 1;
-            }
-
-
-    } else { 
-        target.style.backgroundColor = 'white';
-        target.style.color = 'black';
-        this.value = 'Dark Mode';
-
-        var alist = document.querySelectorAll('a');
-        var i = 0;
-        while(i < alist.length){
-            alist[i].style.color = 'black';
-            i = i + 1;
-            }
-    }
+    nightdayhandler(this);
     ">
 </body>
 </html>
